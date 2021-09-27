@@ -1,6 +1,11 @@
 const { getResultFromMultipleWorkers } = require("../workers/employer");
 const booksMerger = require("books-merger");
 
+/**
+ * Searches the given stores for the book and merges the results.
+ * @param {Object} searchObject The text to search
+ * @returns An object containing an array of books
+ */
 const search = async (searchObject) => {
   let results = { requestStores: searchObject.stores };
 
@@ -21,6 +26,11 @@ const search = async (searchObject) => {
   return { results: results };
 };
 
+/**
+ * Validates search query.
+ * @param {Object} searchObject The text to search
+ * @returns True if valid false otherwise
+ */
 const _validateSearchObject = (searchObject) => {
   if (!searchObject.text) {
     return false;
