@@ -69,7 +69,7 @@ const workersScheme = {
 };
 
 const workers = convict(workersScheme);
-workers.loadFile("./workers.json");
+workers.loadFile(__dirname + "/workers.json");
 workers.validate();
 
 module.exports = workers;
