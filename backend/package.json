@@ -1,0 +1,14 @@
+{
+  "name": "find-my-book-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Maor Magori",
+  "license": " GPL-3.0-or-later",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
