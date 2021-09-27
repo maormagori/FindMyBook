@@ -2,13 +2,15 @@
   "name": "find-my-book-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
+    "start": "node ./bin/www",
     "test": "test"
   },
   "author": "Maor Magori",
   "license": " GPL-3.0-or-later",
   "dependencies": {
+    "convict": "^5.2.1",
     "express": "^4.17.1"
   }
 }
