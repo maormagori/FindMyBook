@@ -9,10 +9,6 @@ const respond = (res, data) => {
   res.send(data);
 };
 
-app.get("/", (req, res) => {
-  res.send("listening");
-});
-
 app.get("/search", (req, res, next) => {
   const searchQuery = {
     text: req.query.q,
