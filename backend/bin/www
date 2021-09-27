@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+const app = require("../app");
+const http = require("http");
+const config = require("../config/config");
+
+const port = config.port;
+app.set("port", port);
+
+const server = http.createServer(app);
+
+server.listen(port);
