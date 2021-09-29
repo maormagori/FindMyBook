@@ -6,7 +6,7 @@ Each worker responses with either a books array or a single book as a response.
 
 `author` - **required** string, book's author name as received from store.
 
-`url_path` - **required** - string, book's url without base url.
+`url_paths` - **required** - array, array of path objects.
 
 ### Optional
 
@@ -18,6 +18,8 @@ Each worker responses with either a books array or a single book as a response.
 
 `publishing` - string, The book's publisher.
 
+`translator` - string, This publishing, translator name.
+
 `publishing_date` - string, The publishing date.
 
 `pages` - number, amount of pages in book.
@@ -28,8 +30,51 @@ Each worker responses with either a books array or a single book as a response.
 
 `editions` - array, array containing one or more edition.
 
-`edition` - object, containing `print` and `price`.
+### Edition Object
 
 `print` - string, either `paperbook`, `digital` or `secondhand`.
 
 `price` - number, edition's price in shekels.
+
+### Path Object
+
+`storeId` - string, book store id.
+
+`storeName` - string, store name.
+
+`url` - string, full URL to the book in the store's website.
+
+#### Book object - example
+
+```JSON
+{
+  "name": "ללכת בדרכך",
+  "author": "ג'וג'ו מויס",
+  "url_paths": [
+    {
+      "storeId": "1",
+      "storeName": "e-vrit",
+      "url": "https://www.e-vrit.co.il/Product/2740/%D7%9C%D7%9C%D7%9B%D7%AA_%D7%91%D7%93%D7%A8%D7%9B%D7%9A"
+    }
+  ],
+  "md5": "64868a704bdf1b58f289a0e3c4813d71",
+  "poster": "https://images-evrit.yit.co.il/Images/Products/Ebooks/me_before_you_master.jpg",
+  "description": "הספר הזה יגנוב את לבכם, ישבור אותו וירכיב אותו מחדש…\n\"ואם הייתי אומר לך שאני לא רוצה שתהיי כאן?\"\n\"אתה לא המעסיק שלי. אמא שלך המעסיקה שלי. ועד שהיא לא תגיד לי...",
+  "publishing": "ידיעות ספרים",
+  "publishing_date": "אפריל 2014",
+  "translator": "קטיה בנוביץ'",
+  "pages": 407,
+  "isbn": "978-965-545-826-8",
+  "danacode": "362-5002",
+  "editions": [
+    {
+      "print": "paperbook",
+      "price": 50
+    },
+    {
+      "print": "digital",
+      "price": 31
+    }
+  ]
+}
+```
