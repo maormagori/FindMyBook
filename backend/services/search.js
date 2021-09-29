@@ -1,7 +1,4 @@
-const {
-    getResultFromMultipleWorkers,
-    getStores,
-} = require("../workers/employer");
+const { getResultFromMultipleWorkers } = require("../workers/employer");
 //const booksMerger = require("books-merger");
 
 /**
