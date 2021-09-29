@@ -48,6 +48,11 @@ const workersScheme = {
                 format: "Boolean",
                 default: true,
             },
+            url: {
+                doc: "worker address",
+                format: "url",
+                default: "",
+            },
             store: {
                 id: {
                     doc: "The bookstore's id",
