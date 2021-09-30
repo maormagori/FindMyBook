@@ -8,9 +8,9 @@ Each worker responses with either a books array or a single book as a response.
 
 `url_paths` - **required** - array, array of path objects.
 
-### Optional
+`md5` - **required** string, an md5 hash of the book name + author name. both after removing special characters.
 
-`md5` - string, an md5 hash of the book name + author name. both after removing special characters.
+### Optional
 
 `poster` - string, URL to the book's cover.
 
