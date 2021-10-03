@@ -16,5 +16,8 @@
   },
   "files": [
     "lib/**/*"
-  ]
+  ],
+  "dependencies": {
+    "fastify": "^3.22.0"
+  }
 }
