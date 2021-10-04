@@ -3,7 +3,7 @@ import { manifest, book } from "../types";
 type searchHandler = (textToSearch: string) => Promise<book[]>;
 type getBookHandler = (requestedBook: book) => Promise<book>;
 
-type workerHandlers = {
+export type workerHandlers = {
     searchHandler?: searchHandler;
     getBookHandler?: getBookHandler;
 };
@@ -26,4 +26,6 @@ class worker {
         this.handlers.getBookHandler = handlerFunction;
         return this;
     }
+
+    //TODO: add handlers and manifest validation
 }
