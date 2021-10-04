@@ -1,20 +1,29 @@
 import { manifest, book } from "../types";
 
-class workerBuilder {
-    manifest: manifest;
-    handlers?: {
-        searchHandler: (book: book) => book[];
-        getBookHandler: (book: book) => book;
-    };
+type searchHandler = (textToSearch: string) => Promise<book[]>;
+type getBookHandler = (requestedBook: book) => Promise<book>;
 
-    constructor(
-        workerManifest: manifest,
-        handlers?: {
-            searchHandler: (book: book) => book[];
-            getBookHandler: (book: book) => book;
-        }
-    ) {
+type workerHandlers = {
+    searchHandler?: searchHandler;
+    getBookHandler?: getBookHandler;
+};
+
+class worker {
+    manifest: manifest;
+    handlers: workerHandlers;
+
+    constructor(workerManifest: manifest, handlers: workerHandlers = {}) {
         this.manifest = Object.freeze(workerManifest);
         this.handlers = handlers;
+    }
+
+    setSearchHandler(handlerFunction: searchHandler): worker {
+        this.handlers.searchHandler = handlerFunction;
+        return this;
+    }
+
+    setGetBookHandler(handlerFunction: getBookHandler): worker {
+        this.handlers.getBookHandler = handlerFunction;
+        return this;
     }
 }
