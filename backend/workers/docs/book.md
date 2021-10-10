@@ -28,11 +28,11 @@ Each worker responses with either a books array or a single book as a response.
 
 `danacode` - string, the book's [Danacode](http://www.danacode.co.il/).
 
-`editions` - array, array containing one or more edition.
+`editions` - object, object containing arrays of different print editions of the book as `edition object`. Supported prints are `paperbook`,`digital` and `secondhand`.
 
 ### Edition Object
 
-`print` - string, either `paperbook`, `digital` or `secondhand`.
+`storeId` - string, book store id.
 
 `price` - number, edition's price in shekels.
 
@@ -66,15 +66,19 @@ Each worker responses with either a books array or a single book as a response.
   "pages": 407,
   "isbn": "978-965-545-826-8",
   "danacode": "362-5002",
-  "editions": [
-    {
-      "print": "paperbook",
-      "price": 50
-    },
-    {
-      "print": "digital",
-      "price": 31
-    }
-  ]
+  "editions": {
+    "paperbook": [
+      {
+        "storeId": "1",
+        "price": 50
+      }
+    ],
+    "digital": [
+      {
+        "storeId": "1",
+        "price": 31
+      }
+    ]
+  }
 }
 ```
