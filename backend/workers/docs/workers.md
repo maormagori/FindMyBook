@@ -5,11 +5,11 @@ A worker can be outsourced. As long as it respond to the protocols and passes th
 
 ### Protocols
 
-|          **Path**           | **Type** |          **Data**          |                                    **Returns**                                    |
-| :-------------------------: | :------: | :------------------------: | :-------------------------------------------------------------------------------: |
-|      `/manifest.json`       |   GET    |             -              |          a JSON with a workers manifest. There's an example at the end.           |
-| `/search?text=SEARCH_QUERY` |   GET    |             -              | returns a [book object](./book.md) array with search results of the search query. |
-|       `/populateBook`       |  PATCH   | a [book object](./book.md) |                    returns the book object with added values.                     |
+|          **Path**           | **Type** |          **Data**          |                                                                                         **Returns**                                                                                          |
+| :-------------------------: | :------: | :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|      `/manifest.json`       |   GET    |             -              |                                                                a JSON with a workers manifest. There's an example at the end.                                                                |
+| `/search?text=SEARCH_QUERY` |   GET    |             -              |           a JSON with a single `books` attribute containg an array of [book object](./book.md).<br>The books represent the query's search results.<br> Example: `{ books: [...]}`.           |
+|       `/populateBook`       |  PATCH   | a [book object](./book.md) | a JSON with a single `book` attribute containing a [book object](./book.md). <br>The book will be the the same book from the request, with updated properties. <br> Example: `{book: {...}}` |
 
 ### Manifest
 
