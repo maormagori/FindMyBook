@@ -9,7 +9,7 @@ A worker can be outsourced. As long as it respond to the protocols and passes th
 | :-------------------------: | :------: | :------------------------: | :-------------------------------------------------------------------------------: |
 |      `/manifest.json`       |   GET    |             -              |          a JSON with a workers manifest. There's an example at the end.           |
 | `/search?text=SEARCH_QUERY` |   GET    |             -              | returns a [book object](./book.md) array with search results of the search query. |
-|         `/getBook`          |   POST   | a [book object](./book.md) |                    returns the book object with added values.                     |
+|       `/populateBook`       |  PATCH   | a [book object](./book.md) |                    returns the book object with added values.                     |
 
 ### Manifest
 
