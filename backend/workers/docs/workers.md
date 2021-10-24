@@ -21,7 +21,7 @@ A worker's manifest is a JSON object containg all the relevant information to th
 {
     "name": "E-vrit Worker", //The name of the container.
     "ip": "127.0.0.1" , //Container ip. used in development.
-    "port": "3001", //Container port. used in development.
+    "port": 3001, //Container port. used in development.
     "active": true, //Wether or not to use this worker
     "url": "https://www.evritworker.example/", //The worker's path
     "store": {
