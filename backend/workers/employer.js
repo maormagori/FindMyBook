@@ -8,9 +8,24 @@ const getResultFromMultipleWorkers = async (text, stores) => {
         filteredWorkers.map((worker) => getSearchResultFromWorker(worker))
     );
 
+    const requestedWorkersResultsWithData = {
+        successfulWorkers: [],
+        returnedArrays: [],
+    };
+
+    workersResults.forEach((result) => {
+        if (result.value.isSuccessful) {
+            requestedWorkersResultsWithData.successfulWorkers.push(
+                result.value.store
+            );
+            requestedWorkersResultsWithData.returnedArrays.push(
+                result.value.data
+            );
+        }
+    });
     //TODO: add results logging.
 
-    return workersResults;
+    return requestedWorkersResultsWithData;
 };
 
 const getSearchResultFromWorker = async (worker, text) => {
@@ -25,7 +40,8 @@ const getSearchResultFromWorker = async (worker, text) => {
             },
         });
         resultFromWorker.isSuccessful = true;
-        return workerResponse.data;
+        resultFromWorker.data = workerResponse.data;
+        return resultFromWorker;
     } catch (error) {
         resultFromWorker.isSuccessful = false;
         resultFromWorker.error = error;
