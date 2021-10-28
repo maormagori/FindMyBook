@@ -19,7 +19,7 @@ const search = async (searchObject) => {
     const successfulStores = workersResults.successfulWorkers;
 
     results[successfulStores] = successfulStores;
-    const booksAfterMerge = booksMerger(workersResults);
+    const booksAfterMerge = booksMerger(workersResults.returnedArrays);
 
     results[books] = booksAfterMerge;
 
