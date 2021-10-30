@@ -1,3 +1,5 @@
+const env = require("../config/config").get("env");
+
 const convict = require("convict");
 const convict_format_with_validator = require("convict-format-with-validator");
 
@@ -74,7 +76,10 @@ const workersScheme = {
 };
 
 const workers = convict(workersScheme);
-workers.loadFile(__dirname + "/workers.json");
+if (env === "development")
+    workers.loadFile(__dirname + "/development_workers.json");
+else workers.loadFile(__dirname + "/workers.json");
+
 workers.validate();
 
 module.exports = workers;
