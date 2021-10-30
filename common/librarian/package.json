@@ -1,0 +1,17 @@
+{
+  "name": "@findmybook/librarian",
+  "version": "1.0.0",
+  "description": "This package is used by FindMyBook to merge results from multiple books stores and remove duplicate books.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "test"
+  },
+  "author": "Maor Magori <maor@magori.online>",
+  "license": "GPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maormagori/FindMyBook",
+    "directory": "common/librarian"
+  }
+}
