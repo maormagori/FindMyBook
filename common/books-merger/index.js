@@ -22,6 +22,7 @@ const _sanitizeBooksArray = (booksObj) => {
 
     //TODO: add structure validation
 
+    arrayToValidate = [].concat(...arrayToValidate);
     return arrayToValidate;
 };
 
