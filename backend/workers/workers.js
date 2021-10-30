@@ -36,7 +36,7 @@ const workersScheme = {
             ip: {
                 doc: "The worker ip",
                 format: "ipaddress",
-                default: "",
+                default: "127.0.0.1",
             },
 
             port: {

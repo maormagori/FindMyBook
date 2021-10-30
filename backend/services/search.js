@@ -19,7 +19,7 @@ const search = async (searchObject) => {
     const successfulStores = workersResults.successfulWorkers;
 
     results[successfulStores] = successfulStores;
-    const booksAfterMerge = booksMerger(workersResults);
+    const booksAfterMerge = booksMerger(workersResults.returnedArrays);
 
     results[books] = booksAfterMerge;
 
@@ -36,11 +36,15 @@ const _validateSearchObject = (searchObject) => {
         return false;
     }
 
-    if (Array.isArray(searchObject.stores)) {
+    if (!Array.isArray(searchObject.stores)) {
         return false;
     }
 
     for (store of searchObject.stores) {
         if (!Number.isNaN(store)) return false;
     }
+
+    return true;
 };
+
+module.exports = search;
