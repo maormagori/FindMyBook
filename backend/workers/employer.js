@@ -2,10 +2,10 @@ const workers = require("./workers");
 const axios = require("axios");
 
 const getResultFromMultipleWorkers = async (text, stores) => {
-    const filteredWorkers = getWorkers(stores);
+    const filteredWorkers = getRequestedWorkers(stores);
 
     const workersResults = await Promise.allSettled(
-        filteredWorkers.map((worker) => getSearchResultFromWorker(worker))
+        filteredWorkers.map((worker) => getSearchResultFromWorker(worker, text))
     );
 
     const requestedWorkersResultsWithData = {
@@ -49,16 +49,16 @@ const getSearchResultFromWorker = async (worker, text) => {
     }
 };
 
-//TODO: Change name to something that more reflects what the function is doing.
-const getWorkers = (storesArray) => {
+const getRequestedWorkers = (storesArray) => {
     return workers.get("workers").filter((worker) => {
-        if (worker.active && storesArray.includes(worker.store.id))
-            return active;
+        if (storesArray.includes(worker.store.id)) {
+            return worker.active;
+        }
     });
 };
 
 module.exports = {
     getResultFromMultipleWorkers,
     getResultFromWorker: getSearchResultFromWorker,
-    getWorkers,
+    getWorkers: getRequestedWorkers,
 };

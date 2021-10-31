@@ -1,5 +1,5 @@
 const { getResultFromMultipleWorkers } = require("../workers/employer");
-//const booksMerger = require("books-merger");
+const booksMerger = require("@findmybook/librarian");
 
 /**
  * Searches the given stores for the book and merges the results.
@@ -18,10 +18,10 @@ const search = async (searchObject) => {
     );
     const successfulStores = workersResults.successfulWorkers;
 
-    results[successfulStores] = successfulStores;
+    results.successfulStores = successfulStores;
     const booksAfterMerge = booksMerger(workersResults.returnedArrays);
 
-    results[books] = booksAfterMerge;
+    results.books = booksAfterMerge;
 
     return { results: results };
 };
@@ -38,10 +38,6 @@ const _validateSearchObject = (searchObject) => {
 
     if (!Array.isArray(searchObject.stores)) {
         return false;
-    }
-
-    for (store of searchObject.stores) {
-        if (!Number.isNaN(store)) return false;
     }
 
     return true;
